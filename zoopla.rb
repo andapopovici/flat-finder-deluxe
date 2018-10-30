@@ -1,3 +1,5 @@
+OFFSET_IN_DAYS = 3
+
 def get_zoopla
   p "Getting Zoopla..."
   doc = HTTParty.get("https://www.zoopla.co.uk/to-rent/property/edinburgh/?beds_min=2&include_shared_accommodation=false&price_frequency=per_month&price_max=1000&q=Edinburgh&results_sort=newest_listings&search_source=home")
@@ -22,7 +24,7 @@ def get_zoopla
       results_hash[date] = [ids[index]]
     end
   }
-  todays_results = results_hash[Date.today - 3]
+  todays_results = results_hash[Date.today - OFFSET_IN_DAYS]
 
   p "No results found for today" unless todays_results
 
