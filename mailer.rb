@@ -24,12 +24,5 @@ class Mailer
       subject "Your latest #{results.length} 🏡"
          body text
     end
-
-    Mail.deliver do
-           to "katboczek@gmail.com"
-         from ENV["FLAT_FINDER_SENDER"]
-      subject "Your latest #{results.length} 🏡"
-         body text
-    end
   end
 end
